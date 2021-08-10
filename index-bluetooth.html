@@ -1,0 +1,23 @@
+<html>
+<body>
+<button onclick="connect();">Click here</button>
+<script>
+function connect() {
+    console.log('Getting Bluetooth Device...');
+    navigator.bluetooth.requestDevice(
+    {
+      filters: [{
+        name: 'THOR-AI'
+      }],
+      // acceptAllDevices : true
+    })
+    .then(device => {
+        console.log('Got device');
+    })
+     .catch(error => {
+        console.log(error);
+    });
+ }
+</script>
+</body>
+</html>

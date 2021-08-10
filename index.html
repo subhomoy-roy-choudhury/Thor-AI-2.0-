@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="manifest" href="manifest.json">
+  <title>Project Thor2.0</title>
+</head>
+<body>
+<h1>Thor 2.0</h1>
+<form method="post">
+    <div class="formBox">
+        <label for="like">IP Address :- </label>
+        <input type="text" id="ip_address">
+    </div><button id="change">Change IP</button><button id="reset">Reset IP</button>
+    <div class="formBox">
+        <button id="btn">Click to Add</button>
+    </div>
+    <p>IP Address :- </p>
+    <div id="btn_new">
+      <p>No Device Connected</p>
+    </div>
+    <div class="formBox">
+        <label for="dislike">Start Chatting with Thor 2.0</label>
+        <input type="text" id="dislikes" onfocus="this.value=''" disabled>
+    </div>
+    <div class="formBox">
+        <button id="dislikebtn" disabled>Click to Chat</button>
+    </div>
+    <p>Chat with Thor 2.0 :- </p>
+    <div id="btn_new1">
+    </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
