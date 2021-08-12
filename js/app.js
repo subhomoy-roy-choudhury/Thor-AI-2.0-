@@ -39,7 +39,6 @@ const addLike = (ev) => {
         type: "GET",
         headers: {
           "X-Api-Key": "2c5910f0ec69970653c6aae5f83a35b22afdfcce",
-          // 'Access-Control-Allow-Origin': '*'
         },
         datatype: 'json',
         cache: false,
@@ -68,14 +67,17 @@ const add_dislike = (ev) => {
       }
       dislikes.push(dislike);
       var data = {
-          user_input: dislike['dislike'],
+          user_input: dislike['dislike']
       }
       $.ajax({
           url: `http://${ip_address}/get`,
           type: "POST",
-          // headers: { "X-Api-Key": "2c5910f0ec69970653c6aae5f83a35b22afdfcce" },
+          headers: {
+            "X-Api-Key": "2c5910f0ec69970653c6aae5f83a35b22afdfcce",
+          },
           data: JSON.stringify(data),
           datatype: 'json',
+          contentType: "application/json; charset=utf-8",
           cache: false,
           error: function(resp) {
               console.log(resp);
