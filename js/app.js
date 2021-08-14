@@ -1,3 +1,23 @@
+if (annyang) {
+// Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+      'show tps report': function() {
+      $('#tpsreport').animate({bottom: '-100px'});
+      },
+      'name': function(variable){
+          console.log("hi");
+          let thor_command = document.getElementById("dislikes");
+          thor_command.value = variable;
+      }
+};
+
+// Add our commands to annyang
+annyang.addCommands(commands);
+
+// Start listening. You can call this here, or attach this call to an event, button, etc.
+annyang.start();
+}
+
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
