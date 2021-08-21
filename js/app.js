@@ -1,31 +1,3 @@
-// Sppech Recognition System
-if (annyang) {
-// Let's define our first command. First the text we expect, and then the function it should call
-  var commands = {
-<<<<<<< HEAD
-    //   'show tps report': function() {
-    //   $('#tpsreport').animate({bottom: '-100px'});
-    //   },
-      'write age': function(variable){
-=======
-      'show tps report': function() {
-      $('#tpsreport').animate({bottom: '-100px'});
-      },
-      'write name': function(variable){
->>>>>>> 7624dd721b3e962224a2d0dc879488af29c30634
-          console.log("hi");
-          let thor_command = document.getElementById("dislikes");
-          thor_command.value = variable;
-      }
-};
-
-// Add our commands to annyang
-annyang.addCommands(commands);
-
-// Start listening. You can call this here, or attach this call to an event, button, etc.
-annyang.start();
-}
-
 // Cookie Management System
 function getCookie(cname) {
     let name = cname + "=";
@@ -129,7 +101,12 @@ const add_dislike = (ev) => {
               $("#btn_new1").empty();
               for (i = 1; i <= dislikes.length; i++) {
                   console.log(i, dislikes[i - 1]);
-                  $('#btn_new1').append(`<p>${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}`);
+                  if(dislikes[i-1].is_bot){
+                    $('#btn_new1').append(`<div class="recieve">${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}</div>`);
+                  }
+                  else{
+                    $('#btn_new1').append(`<div class="send">${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}</div>`);
+                  }
               };
               // localStorage.setItem('Chat', JSON.stringify(dislikes));
           },
@@ -148,7 +125,12 @@ const add_dislike = (ev) => {
               $("#btn_new1").empty();
               for (i = 1; i <= dislikes.length; i++) {
                   console.log(i, dislikes[i - 1]);
-                  $('#btn_new1').append(`<p>${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}`);
+                  if(dislikes[i-1].is_bot){
+                    $('#btn_new1').append(`<div class="recieve">${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}</div>`);
+                  }
+                  else{
+                    $('#btn_new1').append(`<div class="send">${dislikes[i-1].dislike} ---- ${dislikes[i-1].is_bot}</div>`);
+                  }
               };
               localStorage.setItem('Chat', JSON.stringify(dislikes));
           }
