@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Camera Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+    .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+    }
+    .modal-footer {
+      background-color: #f9f9f9;
+    }
+    </style>
+</head>
+<body>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Camera Access</h4>
+        </div>
+        <div class="modal-body">
+          <!-- <button id="start-camera">Start Camera</button> -->
+          <video id="video" width="320" height="240" autoplay></video>
+          <button id="click-photo">Click Photo</button>
+          <button type="button" class="btn btn-default" id="reset" data-dismiss="modal">Cancel</button>
+          <canvas id="canvas" width="320" height="240"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <canvas id="canvas" width="640" height="480"></canvas> -->
+  <script type="text/javascript">
+    // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            //video.src = window.URL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.play();
+        });
+    }
+    let video = document.querySelector("#video");
+    let click_button = document.querySelector("#click-photo");
+    let canvas = document.querySelector("#canvas");
+
+    click_button.addEventListener('click', function() {
+       	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+       	let image_data_url = canvas.toDataURL('image/jpeg');
+
+       	// data url of the image
+       	console.log(image_data_url);
+    });
+    window.onload = function() {
+      $("#myModal").modal();
+    };
+  </script>
+</body>
+<html>

@@ -1,10 +1,18 @@
+// Sppech Recognition System
 if (annyang) {
 // Let's define our first command. First the text we expect, and then the function it should call
   var commands = {
+<<<<<<< HEAD
     //   'show tps report': function() {
     //   $('#tpsreport').animate({bottom: '-100px'});
     //   },
       'write age': function(variable){
+=======
+      'show tps report': function() {
+      $('#tpsreport').animate({bottom: '-100px'});
+      },
+      'write name': function(variable){
+>>>>>>> 7624dd721b3e962224a2d0dc879488af29c30634
           console.log("hi");
           let thor_command = document.getElementById("dislikes");
           thor_command.value = variable;
@@ -18,6 +26,7 @@ annyang.addCommands(commands);
 annyang.start();
 }
 
+// Cookie Management System
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
@@ -42,6 +51,9 @@ if (ip_addr_ccokie != "") {
     $('#btn_new').append(`<p>${ip_addr_ccokie} -- connected</p>`);
 }
 ip_address = ip_addr_ccokie;
+
+
+// IP Verification System
 const addLike = (ev) => {
     ev.preventDefault();
     let likes = [];
@@ -77,6 +89,9 @@ const addLike = (ev) => {
         }
     });
 }
+
+
+// Chat Interation System
 let dislikes = [];
 const add_dislike = (ev) => {
     ev.preventDefault();
